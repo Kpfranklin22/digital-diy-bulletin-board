@@ -20,13 +20,13 @@ Event.init(
       allowNull: false,
     },
     event_time: {
-      type: DATE,
+      type: DataTypes.DATE,
       allowNull: false,
     },
     timestamp: {
       type: DataTypes.DATE,
       allowNull: false,
-      default: NOW,
+      default: DataTypes.NOW,
     },
     venue: {
       type: DataTypes.STRING,
