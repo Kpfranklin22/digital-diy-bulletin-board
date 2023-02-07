@@ -4,12 +4,10 @@ const sequelize = require("../../config/connection");
 const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
-// Event.Findall({})
+  // Event.Findall({})
 });
 router.get("/:id", (req, res) => {
-// Event.findOne({})
+  // Event.findOne({})
 });
-
-
 
 module.exports = router;
