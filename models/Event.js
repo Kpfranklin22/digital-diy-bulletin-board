@@ -18,7 +18,7 @@ Event.init(
         description: {
             type: DataTypes.TEXT,
             allowNull: false
-        }
+        },
         event_time:{
             type: DATE,
             allowNull: false
@@ -29,7 +29,7 @@ Event.init(
             default: NOW,
         },
         venue: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
             allowNull: false
         },
         user_id: {
@@ -50,5 +50,8 @@ Event.init(
     sequelize,
     underscored: true,
     freezeTableName: true,
+    timestamp: false,
     modelName: "event",
 })
+
+module.exports = Event;
