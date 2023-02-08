@@ -45,7 +45,8 @@ router.get("/:id", (req, res) => {
   })
 });
 
-router.post('/', withAuth, (req, res)=>{
+//add withAuth back in once auth.js completed
+router.post('/', (req, res)=>{
   Event.create({
     title: req.body.title,
     description: req.body.description,
@@ -57,6 +58,26 @@ router.post('/', withAuth, (req, res)=>{
     console.log(err);
     res.status(500).json(err);
   });
+});
+
+//add withAuth back in once auth.js completed
+router.delete("/:id", (req, res) => {
+  Event.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbEventData) => {
+      if (!dbEventData) {
+        res.status(404).json({ message: "No post found with this ID" });
+        return;
+      }
+      res.json(dbEventData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;
