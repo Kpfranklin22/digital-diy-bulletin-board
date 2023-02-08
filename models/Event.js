@@ -6,7 +6,7 @@ class Event extends Model {}
 Event.init(
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
@@ -23,14 +23,9 @@ Event.init(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    timestamp: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      default: DataTypes.NOW,
-    },
     venue: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
