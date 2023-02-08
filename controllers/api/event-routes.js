@@ -1,34 +1,36 @@
 const router = require("express").Router();
 const { User, Event } = require("../../models");
 const sequelize = require("../../config/connection");
-// const withAuth = require("../../utils/auth");
+const withAuth = require("../../utils/auth");
+
+ // Event.Findall({})
 
 router.get("/", (req, res) => {
-  // Event.Findall({})
   Event.findAll({
     attributes: ['id', 'title', 'description', 'event_time', 'venue', 'created_at'],
     order: [["created_at", "DESC"]],
     include: [
       {
-        model: "user",
+        model: User,
         attributes: ["username"]
       }
     ]
-  }).then((dbEventData)=> res.json(dbEventData.reverse())).catch((err)=>{
+  }).then((dbEventData)=> res.json(dbEventData)).catch((err)=>{
     console.log(err);
     res.status(500).json(err);
   })
 });
 
+ // Event.findOne({})
+
 router.get("/:id", (req, res) => {
-  // Event.findOne({})
   Event.findOne({
     where: {
       id: req.params.id,
     },
     attributes: ['id', 'title', 'description', 'event_time', 'venue', 'created_at'],
     include: [{
-      model: "user",
+      model: User,
       attributes: ["username"]
     }]
   }).then((dbEventData)=>{
@@ -41,6 +43,20 @@ router.get("/:id", (req, res) => {
     console.log(err);
     res.status(500).json(err);
   })
+});
+
+router.post('/', withAuth, (req, res)=>{
+  Event.create({
+    title: req.body.title,
+    description: req.body.description,
+    event_time: req.body.event_time,
+    venue: req.body.venue,
+    img_source: req.body.img_source,
+    user_id: req.session.user_id
+  }).then(dbEventData => res.json(dbEventData)).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
