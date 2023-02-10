@@ -24,7 +24,12 @@ router.get("/",(req, res) => {
 });
 
 //Add withAuth once auth.js is complete
+//make a new event
 router.post("/", (req, res)=>{
 })
+
+router.get("/new", (req, res) => {
+    res.render("new-event", {username: req.session.username});
+  });
 
 module.exports = router;

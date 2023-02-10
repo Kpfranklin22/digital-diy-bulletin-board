@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const { User, Event } = require("../../models");
-const sequelize = require("../../config/connection");
 const withAuth = require("../../utils/auth");
-
- // Event.Findall({})
 
 router.get("/", (req, res) => {
   Event.findAll({
@@ -20,8 +17,6 @@ router.get("/", (req, res) => {
     res.status(500).json(err);
   })
 });
-
- // Event.findOne({})
 
 router.get("/:id", (req, res) => {
   Event.findOne({
@@ -53,7 +48,6 @@ router.post('/', (req, res)=>{
     event_time: req.body.event_time,
     venue: req.body.venue,
     img_source: req.body.img_source,
-    user_id: req.session.user_id
   }).then(dbEventData => res.json(dbEventData)).catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -69,7 +63,7 @@ router.delete("/:id", (req, res) => {
   })
     .then((dbEventData) => {
       if (!dbEventData) {
-        res.status(404).json({ message: "No post found with this ID" });
+        res.status(404).json({ message: "No event found with this ID" });
         return;
       }
       res.json(dbEventData);
