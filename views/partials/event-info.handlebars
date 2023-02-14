@@ -1,11 +1,11 @@
-<div class="container row">
-    <div class="card-header dashboard-post">
+<div class="container column">
+    <div class="card-header dashboard-post center">
        <h4 class="card-title post-title"><a>{{title}}</a></h4>
-        <div class="card-body post-body">
+        <div class="card-body post-body center">
         <p class="card-body post-content">{{description}}</p>
         <p class="card-body post-venue">{{venue}}</p>
         <p class="card-body post-time">{{event_time}}</p>
-        <img src="{{img_source}}" class="flyer" alt="flyer"/>
+        <img src="{{img_source}}" class="flyer center" alt="flyer"/>
 
 
         <p class="card-text post-author">Posted by <span class="post-username">{{user.username}}</span> on {{format_date created_at}}</p>

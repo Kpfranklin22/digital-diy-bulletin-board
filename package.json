@@ -21,7 +21,7 @@
     "mvc",
     "express"
   ],
-  "author": "Kyle Franklin",
+  "authors": "Kyle Franklin, Reeth Dasgupta, Oliver Vitale, Nicholas Dufour",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kpfranklin22/digital-diy-bulletin-board/issues"

@@ -4,18 +4,27 @@ const withAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
   Event.findAll({
-    attributes: ['id', 'title', 'description', 'event_time', 'venue', 'created_at'],
+    attributes: [
+      "id",
+      "title",
+      "description",
+      "event_time",
+      "venue",
+      "created_at",
+    ],
     order: [["created_at", "DESC"]],
     include: [
       {
         model: User,
-        attributes: ["username"]
-      }
-    ]
-  }).then((dbEventData)=> res.json(dbEventData)).catch((err)=>{
-    console.log(err);
-    res.status(500).json(err);
+        attributes: ["username"],
+      },
+    ],
   })
+    .then((dbEventData) => res.json(dbEventData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.get("/:id", (req, res) => {
@@ -23,44 +32,52 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ['id', 'title', 'description', 'event_time', 'venue', 'created_at'],
-    include: [{
-      model: User,
-      attributes: ["username"]
-    }]
-  }).then((dbEventData)=>{
-    if (!dbEventData){
-      res.status(404).json({message:"No event with this ID!"});
-      return;
-    }
-    res.json(dbEventData)
-  }).catch(err=>{
-    console.log(err);
-    res.status(500).json(err);
+    attributes: [
+      "id",
+      "title",
+      "description",
+      "event_time",
+      "venue",
+      "created_at",
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
   })
+    .then((dbEventData) => {
+      if (!dbEventData) {
+        res.status(404).json({ message: "No event with this ID!" });
+        return;
+      }
+      res.json(dbEventData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-//add withAuth back in once auth.js completed
-router.post('/',withAuth, (req, res)=>{
-  // let userDate = req.body.event_time;
-  // let eventDate = moment(userDate).format('MM/DD/YYYY');
-
+router.post("/", withAuth, (req, res) => {
   Event.create({
     title: req.body.title,
     description: req.body.description,
     event_time: req.body.event_time,
     venue: req.body.venue,
     img_source: req.body.img_source,
-  }).then((dbEventData) => {
-    res.json(dbEventData);
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+  })
+    .then((dbEventData) => {
+      res.json(dbEventData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
-//add withAuth back in once auth.js completed
-router.delete("/:id",withAuth, (req, res) => {
+router.delete("/:id", withAuth, (req, res) => {
   Event.destroy({
     where: {
       id: req.params.id,
@@ -78,6 +95,5 @@ router.delete("/:id",withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 module.exports = router;
