@@ -1,10 +1,12 @@
 const sequelize = require("../config/connection");
 const {User, Event } = require("../models");
 const router = require("express").Router();
+const withAuth = require("../utils/auth");
+
 
 router.get("/", (req, res) => {  
     Event.findAll({
-    attributes: ["id", "title", "description", "created_at"],
+    attributes: ["id", 'title', 'description', 'event_time', 'venue', 'created_at', 'img_source'],
     include: [
       {
         model: User,
@@ -73,27 +75,7 @@ router.get("/login", (req, res) => {
   });
 
   //add withAuth
-  router.get("/dashboard",(req, res) => {
-    // Event.findAll({
-    //     // where: {
-    //     //     user_id: req.session.user_id
-    //     // },
-    //     attributes: ['id', 'title', 'description', 'event_time', 'venue', 'created_at'],
-    //     include: [{
-    //         model: User,
-    //         attributes: ['username']
-    //     }]
-    // }).then((dbEventData)=>{
-    //     const events = dbEventData.map(event => event.get({plain: true}));
-    //     res.render('dashboard', {events, loggedIn: true});
-    // }).catch(err=>{
-    //     console.log(err);
-    //     res.status(500).json(err);
-    // });
-    // if (req.session.loggedIn) {
-    //   res.redirect("/");
-    //   return;
-    // }
+  router.get("/dashboard",withAuth, (req, res) => {
     res.render("dashboard");
 });
   

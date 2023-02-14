@@ -4,12 +4,12 @@ const {User, Event } = require("../models");
 const withAuth = require("../utils/auth");
 
 //Add withAuth once auth.js is complete
-router.get("/",(req, res) => {
+router.get("/",withAuth, (req, res) => {
     Event.findAll({
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id', 'title', 'description', 'event_time', 'venue', 'created_at'],
+        attributes: ['id', 'title', 'description', 'event_time', 'venue', 'created_at', 'img_source'],
         include: [{
             model: User,
             attributes: ['username']
@@ -25,7 +25,7 @@ router.get("/",(req, res) => {
 
 //Add withAuth once auth.js is complete
 //make a new event
-router.post("/", (req, res)=>{
+router.post("/",withAuth, (req, res)=>{
 })
 
 router.get("/new", (req, res) => {

@@ -5,13 +5,13 @@ const eventData = [
     "title": "Sadie's Bday",
     "description": "House show with Consec, Mutant Strain and No Uniform",
     "event_time": "2/11/2023",
-   " venue": "145 Conrad St",
+    "venue": "145 Conrad St",
     "user_id": "1"
   },
   {
     "title": "Invertebrates ATL show",
     "description":
-      "Invertebrates play ATL on tour with Richmond Vampire, ConSec and Burning Question",
+    "Invertebrates play ATL on tour with Richmond Vampire, ConSec and Burning Question",
     "event_time": "3/7/2023",
     "venue": "Innerspace",
     "user_id": "2"

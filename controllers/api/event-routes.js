@@ -41,21 +41,26 @@ router.get("/:id", (req, res) => {
 });
 
 //add withAuth back in once auth.js completed
-router.post('/', (req, res)=>{
+router.post('/',withAuth, (req, res)=>{
+  // let userDate = req.body.event_time;
+  // let eventDate = moment(userDate).format('MM/DD/YYYY');
+
   Event.create({
     title: req.body.title,
     description: req.body.description,
     event_time: req.body.event_time,
     venue: req.body.venue,
     img_source: req.body.img_source,
-  }).then(dbEventData => res.json(dbEventData)).catch(err => {
+  }).then((dbEventData) => {
+    res.json(dbEventData);
+  }).catch(err => {
     console.log(err);
     res.status(500).json(err);
   });
 });
 
 //add withAuth back in once auth.js completed
-router.delete("/:id", (req, res) => {
+router.delete("/:id",withAuth, (req, res) => {
   Event.destroy({
     where: {
       id: req.params.id,
@@ -73,5 +78,6 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 module.exports = router;
