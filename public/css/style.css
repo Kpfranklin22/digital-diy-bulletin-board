@@ -1,9 +1,9 @@
 :root {
-    --primary: #82998a;
-    --secondary: #dce9d5;
-    --tertiary: #788585;
-    --light-dark: #80496d;
-    --dark: #49412f;
+    --primary: #fdfffc;
+    --secondary: #f1d302;
+    --tertiary: #ed1c24;
+    --light-dark: #020100;
+    --dark: #235789;
     --border-radius: .3rem;
 }
 
@@ -26,6 +26,10 @@ body {
     display: flex; 
     flex-direction: column; 
     align-items: center;
+}
+
+.description {
+    width: 70%;
 }
 
 .logo {
@@ -210,10 +214,17 @@ h4 {
 }
 
 .navbar {
+    display: flex;
+    justify-content: center;
     list-style-type: none;
-    padding: 10px;
+    /* padding: 10px;
     line-height: 1.25;
-    /* float: top; */
+    float: top; */
+}
+
+.navbar ul li {
+    display: flex;
+    margin: 3%;
 }
 
 footer {

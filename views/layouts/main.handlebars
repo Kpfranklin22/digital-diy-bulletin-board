@@ -6,19 +6,19 @@
   <title>Digital DIY Bullettin Board</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" type="image/x-icon" href="../digital-diy-bulletin-board/public/images/DDBBfavicon.png">
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/B2nVx9v/DDBBfavicon.png">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
-{{!-- <div class="container wrapper"> --}}
+{{!-- <div class="container wrapper"> --}} 
 <div class="center">
 <header class="row">
-  <img class="logo" href="/" src="../digital-diy-bulletin-board/public/images/DDBBlogo.jpg" alt="DDBB">
-    <h1> Digital DIY Bulletin Board </h1>
+  <a href="/"><img src="https://i.ibb.co/dDXBbRx/DDBBlogo.jpg" alt="DDBB" border="0"></a>
+    <h1 class = "center"> Digital DIY Bulletin Board </h1>
       <nav>
         <ul class="navbar">
-              <li><a class="link" href="/">Home</a></li>
+              <li><a class="link" href="/"> Home </a></li>
                <li><a class="link" href="/dashboard">Dashboard</a></li>
               {{#if loggedIn}}
                <li><a class="link" href="/logout" id="logout">Logout</a></li>
