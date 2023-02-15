@@ -1,6 +1,8 @@
 const User = require("./User");
 const Event = require("./Event");
 
+// Establishes relationship between User and Event models
+
 User.hasMany(Event, {
   foreignKey: "user_id",
 });

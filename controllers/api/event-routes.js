@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, Event } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+//Shows all events from database with their attributes as well as the user who posted the event
 router.get("/", (req, res) => {
   Event.findAll({
     attributes: [
@@ -10,6 +11,7 @@ router.get("/", (req, res) => {
       "description",
       "event_time",
       "venue",
+      "img_source",
       "created_at",
     ],
     order: [["created_at", "DESC"]],
@@ -27,6 +29,7 @@ router.get("/", (req, res) => {
     });
 });
 
+//Shows a single event by it's ID number as well as the user who posted it.
 router.get("/:id", (req, res) => {
   Event.findOne({
     where: {
@@ -38,6 +41,7 @@ router.get("/:id", (req, res) => {
       "description",
       "event_time",
       "venue",
+      "img_source",
       "created_at",
     ],
     include: [
@@ -60,6 +64,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//Takes user input to create and assign attributes to a new event.
 router.post("/", withAuth, (req, res) => {
   Event.create({
     title: req.body.title,
@@ -77,6 +82,8 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
+//Delete route for events to be implemented in future updates to the app.
+//Uses event ID number to identify which one is to be deleted.
 router.delete("/:id", withAuth, (req, res) => {
   Event.destroy({
     where: {

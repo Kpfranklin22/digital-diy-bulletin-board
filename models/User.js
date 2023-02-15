@@ -3,10 +3,14 @@ const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
 class User extends Model {
+  // Compares user input password with hashed password from database
+
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
+
+// Establishes User model as well as hashes the user inputed password before storing in the database
 
 User.init(
   {

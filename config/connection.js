@@ -1,6 +1,9 @@
 const Sequelize = require("sequelize");
 require("dotenv").config();
 
+// Connects to JAWSDB_URL for Heroku to host the app globally
+// or else it uses my local env vars to connect to localhost
+
 let sequelize;
 
 if (process.env.JAWSDB_URL) {

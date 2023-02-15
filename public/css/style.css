@@ -1,7 +1,7 @@
 :root {
     --primary: #fdfffc;
     --secondary: #f1d302;
-    --tertiary: #ed1c24;
+    --tertiary: #FC311F;
     --light-dark: #020100;
     --dark: #235789;
     --border-radius: .3rem;
@@ -12,11 +12,11 @@
 }
 
 body {
-    background-color: var(--primary);
+    background-color: var(--dark);
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans", sans-serif;
-    color: var(--dark);
+    color: var(--primary);
     line-height: 1.5;
     font-size: 24px;
     justify-content: center;
@@ -34,10 +34,11 @@ body {
 
 .logo {
     width: 100%;
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%; */
+}
+
+header img {
+    padding-bottom: 2%;
+    margin-bottom: 2%;
 }
 
 h1,
@@ -47,14 +48,13 @@ h5,
 h6 {
     font-weight: 700;
     margin: 0;
-    color: var(--dark);
+    color: var(--light-dark);
     line-height: 1.25;
 }
 
 .link-color {
-    color: var(--tertiary);
-    padding: 10px;
-    margin: 10px
+    color: var(--primary);
+    accent-color:var(--secondary);
 }
 
 main {
@@ -75,7 +75,7 @@ p {
 }
 
 .btn {
-    font-size: 1.3rem;
+    font-size: 2rem;
     text-decoration: none;
     padding: 6px 5px;
     width: 100%;
@@ -90,10 +90,10 @@ p {
 }
 
 .btn:hover {
-    color: var(--primary);
+    color: var(--secondary);
     background-color: var(--tertiary);
     transform: translate(0, 0);
-    box-shadow: 2px 2px var(--dark);
+    box-shadow: 2px 2px var(--secondary);
 }
 
 .btn-inline {
@@ -158,7 +158,7 @@ p {
 }
 
 .list-item:hover {
-    background-color: var(--dark);
+    background-color: var(--secondary);
 }
 
 .status-icon {
@@ -185,9 +185,9 @@ p {
 
 .card-header {
     color: var(--primary);
-    background-color: var(--dark);
+    background-color: var(--light-dark);
     padding: 1%;
-    border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+    border: 2px solid var(--primary);
 }
 
 .card-body {
@@ -195,36 +195,36 @@ p {
 }
 
 .flyer {
-    max-width: 30%;
+    max-width: 70%;
 }
         
 h4 {
     font-weight: 700;
     margin: 0;
-    color: var(--light-dark);
+    color: var(--secondary);
     line-height: 1.25;
 }
 
 .link {
-    color: var(--light-dark);
+    color: var(--primary);
 }
 
 .login-link {
-    color: var(--dark);
+    color: var(--primary);
 }
 
 .navbar {
     display: flex;
     justify-content: center;
     list-style-type: none;
-    /* padding: 10px;
-    line-height: 1.25;
-    float: top; */
+    padding: 1%;
 }
 
-.navbar ul li {
+li {
     display: flex;
-    margin: 3%;
+    margin: 2%;
+    padding: 2%;
+    color: var(--secondary);
 }
 
 footer {
@@ -233,6 +233,7 @@ footer {
     justify-content: center;
     padding: 1%;
     font-size: 110%;
+    color:var(--tertiary)
 }
 
 .form-label,
@@ -243,10 +244,13 @@ footer {
 
 .form-label {
     font-size: 1.1rem;
+    text-decoration: underline;
+    color: var(--tertiary);
     margin: 0 0 0 5px;
 }
 
 .form-input {
+    color: var(--light-dark);
     width: 100%;
     padding: 3%;
     margin: 5px 0;
@@ -278,11 +282,12 @@ footer {
     flex-wrap: wrap;
 }
 
-/* .center {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-} */
+.text-shadow-1 {
+    text-shadow: 2px 2px #FC311F;
+}
+.text-shadow-2 {
+    text-shadow: 2px 2px #fdfffc;
+}
 
 .col-auto {
     flex-grow: 1;

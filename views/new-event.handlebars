@@ -1,4 +1,6 @@
-<h2 class="card-header">Create New Event</h2>
+{{!-- Provides input fields to create a new event --}}
+
+<h2 class="card-header center text-shadow-1">Event Details:</h2>
 <form class="card-body new-post-form" id="new-post-form">
     <div class="form-row">
         <label for="post-title" class="form-label">Title</label>
@@ -13,14 +15,14 @@
         <input id="venue" name="venue" class="form-input form-control" />
     </div>  
         <div class="form-row">
-        <label class="form-label" for="event_time">Event Time</label>
-        <input id="event_time" name="event_time" class="form-input form-control" />
+        <label class="form-label" for="event_time">Event Date</label>
+        <input id="event_time" placeholder="MM/DD/YYYY" name="event_time" class="form-input form-control" />
     </div>
         <div class="form-row">
-        <label class="form-label" for="img_source">Upload Image (Link)</label>
+        <label class="form-label" for="img_source">Upload Image Link (optional)</label>
         <input id="img_source" name="img_source" class="form-input form-control" />
     </div>    
-    <button type="submit" href="/new" class="btn">Create</button>
+    <button type="submit" href="/new" class="btn">Finish</button>
 </form>
 
 

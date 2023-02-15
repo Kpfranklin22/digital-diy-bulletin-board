@@ -1,20 +1,22 @@
+{{!-- Displays input fields for login inofrmation as well as a button to direct the user to signup --}}
+
 <div class="row">
   <div class="col-md-6">
-    <h2>Login</h2>
+    <h2 class="center text-shadow-2">Login</h2>
 
     <form class="form login-form">
       <div class="form-group">
-        <label for="username-login">Username:</label>
+        <label class="text-shadow-1" for="username-login">Username:</label>
         <input class="form-input" type="text" id="username-login" />
       </div>
       <div class="form-group">
-        <label for="password-login">Password:</label>
+        <label class="text-shadow-1" for="password-login">Password:</label>
         <input class="form-input" type="password" id="password-login" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" id ="submit" type="submit">Login</button>
-        {{!-- <a class="btn login-link" href="/api/users/login">Log in</a> --}}
-        <a class="btn login-link" href="/signup">Signup</a>
+        <a class="btn btn-primary login-form" id ="submit" type="submit">Login</a>
+        <break>
+        <a class="btn btn-primary" href="/signup">Signup</a>
       </div>
     </form>
   </div>

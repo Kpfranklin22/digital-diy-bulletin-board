@@ -3,6 +3,8 @@ const sequelize = require("../config/connection");
 
 class Event extends Model {}
 
+// Model for events, including a foreign key for user_id
+
 Event.init(
   {
     id: {
@@ -35,7 +37,7 @@ Event.init(
       },
     },
     img_source: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
   },

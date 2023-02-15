@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, Event } = require("../../models");
 
+//Lists all users in database
 router.get("/", (req, res) => {
   User.findAll({
     attributes: ["id", "username", "email"],
@@ -12,6 +13,7 @@ router.get("/", (req, res) => {
     });
 });
 
+//Lists each user in database by ID number as well as any events posted by that user.
 router.get("/:id", (req, res) => {
   User.findOne({
     attributes: ["id", "username", "email"],
@@ -36,6 +38,8 @@ router.get("/:id", (req, res) => {
     });
 });
 
+//Creates and assigns attributes to a new user based on input.
+//Then saves session data and registers the current user as logged in.
 router.post("/", (req, res) => {
   User.create({
     username: req.body.username,
@@ -57,6 +61,9 @@ router.post("/", (req, res) => {
     });
 });
 
+//Finds a user by username and then validates the entered password by comparing it to
+//the password stored in the database for the associated user. Then saves the session
+//data and registers the current user as logged in.
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
@@ -88,6 +95,7 @@ router.post("/login", (req, res) => {
     });
 });
 
+//Ends current session
 router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -98,6 +106,8 @@ router.post("/logout", (req, res) => {
   }
 });
 
+//Delete route for users to be implemented in future versions of this app. Uses the user ID
+//number to select a user to delete.
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {

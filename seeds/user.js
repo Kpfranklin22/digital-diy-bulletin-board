@@ -1,5 +1,7 @@
 const { User } = require("../models");
 
+// Seeds the user table
+
 const userData = [
   {
     username: "Sal",

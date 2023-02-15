@@ -1,3 +1,5 @@
+{{!-- HTML template for handlebars --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,24 +13,22 @@
 </head>
 
 <body>
-{{!-- <div class="container wrapper"> --}} 
 <div class="center">
 <header class="row">
-  <a href="/"><img src="https://i.ibb.co/dDXBbRx/DDBBlogo.jpg" alt="DDBB" border="0"></a>
-    <h1 class = "center"> Digital DIY Bulletin Board </h1>
+  <a href="/"><img src="https://i.ibb.co/9G9T146/DDBBlogo.jpg" alt="DDBB" border="0"></a>
+    <h1 class ="text-shadow-2 center"> Digital DIY Bulletin Board </h1>
       <nav>
         <ul class="navbar">
-              <li><a class="link" href="/"> Home </a></li>
-               <li><a class="link" href="/dashboard">Dashboard</a></li>
-              {{#if loggedIn}}
-               <li><a class="link" href="/logout" id="logout">Logout</a></li>
-              {{else}}
-               <li><a class="link" href="/login">Login</a></li>
-              {{/if}}
+            <li><a class="link btn" href="/"> Home </a></li>
+             <li><a class="link btn" href="/dashboard">Create Event</a></li>
+             {{!-- Renders the button as login or logout depending on the current session status --}}
+            {{#if loggedIn}}
+             <li><a class="link btn" href="/logout" id="logout">Logout</a></li>
+            {{else}}
+             <li><a class="link btn" href="/login">Login</a></li>
+            {{/if}}
         </ul>
       </nav>
-
-    
 </header>
 
 <main>
@@ -36,19 +36,17 @@
 </main>
 
 <footer class="footer">
-    <div class="row">
-        <p>
-          DDBB by <a href="https://github.com/Kpfranklin22/digital-diy-bulletin-board"> Classic City Coders </a>
-        </p>
-    </div>
+  <div class="row">
+    <p>
+      DDBB by<a class="link link-color" href="https://github.com/Kpfranklin22/digital-diy-bulletin-board"> Classic City Coders </a>
+    </p>
+  </div>
 </footer>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="/js/logout.js"></script>
 
-    {{#if loggedIn}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <script src="/js/logout.js"></script>
-    <script src="https://rawgithub.com/timrwood/moment/2.9.0/min/moment.min.js"></script>
-    {{/if}}
 </div> 
 </div>
 </body>
