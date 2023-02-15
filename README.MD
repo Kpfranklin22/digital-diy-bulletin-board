@@ -13,7 +13,7 @@
 ## Description
   This is a digital do-it-yourself bulletin board where users can create event listings for local shows in the area
 
-![localhost_3001_](https://user-images.githubusercontent.com/115495027/218912722-05fcff38-4507-4e10-ae03-db5d91f22a2b.png)
+![localhost_3001_ (1)](https://user-images.githubusercontent.com/115495027/218912982-e6885770-c582-4597-aac6-4eedc13808a6.png)
 
 Deployed Website: https://digital-diy-bulletin-board.herokuapp.com/
 
