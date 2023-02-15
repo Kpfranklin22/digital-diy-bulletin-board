@@ -23,8 +23,8 @@ const eventData = [
   },
   {
     title: "Gathering of the Juggalos 2022",
-    description: "Gathering of the juggalos, gathering of dreams",
-    event_time: "08/03/2022",
+    description: "Gathering of the Juggalos, Gathering of Dreams",
+    event_time: "8/3/2022",
     venue: "Legend Valley, Ohio",
     user_id: "3",
     img_source:
