@@ -17,6 +17,9 @@
 
 Deployed Website: https://digital-diy-bulletin-board.herokuapp.com/
 
+Test User: Admin
+Test Password: admin123
+
 ## Installation 
   The following dependencies must be installed to run the application: bcrypt, connect-session-sequelize, dotenv, express, express-handlebars, express-session, handlebars, mysql2, sequelize, nodemon
 
