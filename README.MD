@@ -17,7 +17,7 @@
 
 Deployed Website: https://digital-diy-bulletin-board.herokuapp.com/
 
-Test User: Admin
+Test User: Admin  
 Test Password: admin123
 
 ## Installation 
