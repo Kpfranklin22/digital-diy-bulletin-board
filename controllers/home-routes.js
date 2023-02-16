@@ -62,7 +62,10 @@ router.post("/logout", (req, res) => {
 // Renders the "create event" page
 
 router.get("/dashboard", withAuth, (req, res) => {
-  res.render("new-event");
+  res.render("new-event", {
+        loggedIn: req.session.loggedIn,
+        username: req.session.username,
+  });
 });
 
 module.exports = router;

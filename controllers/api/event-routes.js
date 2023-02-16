@@ -66,12 +66,13 @@ router.get("/:id", (req, res) => {
 
 //Takes user input to create and assign attributes to a new event.
 router.post("/", withAuth, (req, res) => {
-  Event.create({
+    Event.create({
     title: req.body.title,
     description: req.body.description,
     event_time: req.body.event_time,
     venue: req.body.venue,
     img_source: req.body.img_source,
+    user_id: req.session.user_id
   })
     .then((dbEventData) => {
       res.json(dbEventData);
